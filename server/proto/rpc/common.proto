@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package service;
+
+message Empty {}
+
+import "models/campaign.proto";
+
+message FindAllCampaignsRequest {}
+
+message FindWithdrawalRequest {}
+
+message FindWithdrawalsRequest {}
+
+message ConfigureWithdrawalRequest {}
+
+message DeleteWithdrawalRequest {}
+
+message EditCampaignRequest {}
+
+message UpdateCampaignRequest {}
+
+message DeleteCampaignRequest {}
+
+message PostUpdateRequest {}
+
+message SendRequest {}
+
+message SendEmailRequest {}
+
+message FindDonationRequest {}
+
+message CreateRewardRequest {}
+
+message DestroyRewardRequest {}
+
+message UpdateRewardRequest {}
+
+message GetAccountDetailsRequest {}
+
+message DeleteUserRequest {}
+
+message LikesRequest {}

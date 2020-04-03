@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package models;
+
+message Withdrawal { string id = 1; }
+
+message WithdrawalList { repeated Withdrawal items = 1; }

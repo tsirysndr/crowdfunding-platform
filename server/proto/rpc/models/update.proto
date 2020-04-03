@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package models;
+
+message Update { string id = 1; }
+
+message UpdateList { repeated Update values = 1; }

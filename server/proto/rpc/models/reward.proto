@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package models;
+
+message Reward { string id = 1; }
+
+message RewardList { repeated Reward items = 1; }

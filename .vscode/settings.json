@@ -1,0 +1,16 @@
+{
+  "protoc": {
+    "compile_on_save": false,
+    "options": [
+      "--proto_path=protos/v3",
+      "--proto_path=protos/v2",
+      "--proto_path=${workspaceRoot}/proto",
+      "--proto_path=${env.GOPATH}/src",
+      "--java_out=gen/java",
+      "--proto_path=${workspaceRoot}/server/proto/rpc"
+    ]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  }
+}

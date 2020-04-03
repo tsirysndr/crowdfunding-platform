@@ -1,0 +1,43 @@
+
+syntax = "proto3";
+
+package service;
+
+import "models/campaign.proto";
+import "models/withdrawal.proto";
+import "models/donation.proto";
+import "models/reward.proto";
+import "models/user.proto";
+import "common.proto";
+
+service Campaign {
+  rpc FindAll(service.FindAllCampaignsRequest) returns (models.CampaignList);
+  rpc FindWithdrawal(service.FindWithdrawalRequest) returns (models.Withdrawal);
+  rpc FindWithdrawals(service.FindWithdrawalsRequest)
+      returns (models.WithdrawalList);
+  rpc ConfigureWithdrawal(service.ConfigureWithdrawalRequest)
+      returns (models.Withdrawal);
+  rpc DeleteWithdrawal(service.DeleteWithdrawalRequest)
+      returns (models.Withdrawal);
+  rpc Update(service.UpdateCampaignRequest) returns (models.Campaign);
+  rpc Delete(service.DeleteCampaignRequest) returns (models.Campaign);
+  rpc PostUpdate(service.PostUpdateRequest) returns (models.Campaign);
+}
+
+service Donation {
+  rpc Send(service.SendRequest) returns (models.Donation);
+  rpc SendEmail(service.SendEmailRequest) returns (models.Donation);
+  rpc Find(service.FindDonationRequest) returns (models.Donation);
+}
+
+service Reward {
+  rpc Create(service.CreateRewardRequest) returns (models.Reward);
+  rpc Destroy(service.DestroyRewardRequest) returns (models.Reward);
+  rpc Update(service.UpdateRewardRequest) returns (models.Reward);
+}
+
+service User {
+  rpc GetAccountDetails(service.GetAccountDetailsRequest) returns (models.User);
+  rpc Delete(service.DeleteUserRequest) returns (models.User);
+  rpc Likes(service.LikesRequest) returns (models.CampaignList);
+}

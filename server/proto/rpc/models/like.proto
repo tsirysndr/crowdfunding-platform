@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package models;
+
+message Like { string id = 1; }
+
+message LikeList { repeated Like items = 1; }

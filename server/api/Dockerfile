@@ -1,0 +1,19 @@
+FROM node:11-alpine
+
+WORKDIR /usr/src/app
+# Copy package.json for caching node_modules
+COPY package.json /usr/src/app/
+
+# Copy yarn.lock for packages consistency
+COPY yarn.lock /usr/src/app/
+
+# Install packages
+RUN yarn install
+
+COPY . .
+
+RUN yarn build
+
+EXPOSE 6001
+
+CMD npm start:prod

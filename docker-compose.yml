@@ -1,0 +1,28 @@
+version: "3.4"
+
+services:
+  pgadmin:
+    image: dpage/pgadmin4:2019-11-12-2
+    ports:
+      - "88:80"
+    env_file: .env
+    depends_on:
+      - db
+  db:
+    image: postgres:11.5
+    environment:
+      POSTGRES_DB: crowdfunding
+    ports:
+      - "5432:5432"
+  api:
+    image: crowdfunding-api
+    build:
+      context: server/api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./server/api/src:/usr/src/app/src
+    env_file: .env
+    ports:
+      - "6001:6001"
+    depends_on:
+      - db
